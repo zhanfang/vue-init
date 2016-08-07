@@ -3,16 +3,16 @@
     <main>
       <header>
         <tabbar :selected.sync="selected">
-          <tab-item id="task">
+          <tab-item id="task" link="true">
             赛场
           </tab-item>
-          <tab-item id="reward">
+          <tab-item id="reward" link="true">
             奖励
           </tab-item>
-          <tab-item id="rank">
+          <tab-item id="rank" link="true">
             榜单
           </tab-item>
-          <tab-item id="rule">
+          <tab-item id="rule" link="true">
             规则
           </tab-item>
         </tabbar>
@@ -33,8 +33,11 @@
     },
     data () {
       return {
-        selected: this.$route.name
+        selected: this.$route.name || 'task'
       }
+    },
+    created () {
+      console.log(this.$route)
     }
   }
 </script>
