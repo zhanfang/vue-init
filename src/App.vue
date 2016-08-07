@@ -33,8 +33,11 @@
     },
     data () {
       return {
-        selected: this.$route.name
+        selected: this.$route.name || 'task'
       }
+    },
+    created () {
+      console.log(this.$route)
     }
   }
 </script>

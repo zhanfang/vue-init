@@ -1,0 +1,12 @@
+{
+  "retcode": 0,
+  "result": {
+    "anchor":[{
+      "username": "zhanfnag",
+      "score": 123456 
+    },{
+      "username": "zhanfang",
+      "score": 123456 
+    }]
+  }
+}

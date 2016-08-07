@@ -21,5 +21,8 @@ export default {
   },
   saveTodos: function (todos) {
     return Resource.SaveResource.save(JSON.stringify(todos))
+  },
+  getAnchorRank: function (params) {
+    return Resource.GetAnchorRank.get(params)
   }
 }

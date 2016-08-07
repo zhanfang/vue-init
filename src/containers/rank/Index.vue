@@ -1,18 +1,18 @@
 <template>
   <header>
     <tabbar :selected.sync="selected">
-      <tab-item id="anchor">
-        艺人
+      <tab-item id="anchor" >
+        <h1 @click="getAnchor">艺人</h1>
       </tab-item>
       <tab-item id="fans">
-        土豪
+        <h1>土豪</h1>
       </tab-item>
       <tab-item id="sociaty">
-        公会
+        <h1>公会</h1>
       </tab-item>
     </tabbar>
   </header>
-  <tab-container :active.sync="selected">
+  <tab-container :active.sync="selected" class="list">
     <tab-container-item id="anchor">
       <ul>
         <li>
@@ -20,7 +20,7 @@
           <span>艺人</span>
           <span>魅力值</span>
         </li>
-        <li v-for="n in 10">{{n}}</li>
+        <li v-for="n in 1000">{{n}}</li>
       </ul>
     </tab-container-item>
     <tab-container-item id="fans">
@@ -50,8 +50,14 @@
   import TabItem from 'components/tabbar/tab-item'
   import TabContainer from 'components/tab-container/tab-container'
   import TabContainerItem from 'components/tab-container/tab-container-item'
+  import { getAnchorRank } from 'store/actions/rank'
 
   export default {
+    vuex: {
+      actions: {
+        getAnchorRank
+      }
+    },
     components: {
       Tabbar,
       TabItem,
@@ -62,6 +68,17 @@
       return {
         selected: 'anchor'
       }
+    },
+    methods: {
+      getAnchor () {
+        this.getAnchorRank({anchor_uni: 123456})
+      }
     }
   }
 </script>
+<style scoped>
+  .list{
+    height: 360px;
+    overflow: scroll;
+  }
+</style>
