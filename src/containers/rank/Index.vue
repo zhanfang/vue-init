@@ -77,8 +77,23 @@
   }
 </script>
 <style scoped>
-  .list{
-    height: 360px;
-    overflow: scroll;
+  .list {
+    height: 300px;
+    overflow: hidden;
+  }
+  .list:hover {
+    overflow-y: scroll;
+  }
+  .list::-webkit-scrollbar {
+    background: RGBA(72, 167, 242, .30);
+    border-radius: 10px;
+    width: 10px;
+    height: 200px;
+  }
+  .list::-webkit-scrollbar-thumb {
+    background: RGBA(72, 167, 242, 1);
+    width: 8px;
+    height: 20px;
+    border-radius: 5px;
   }
 </style>
