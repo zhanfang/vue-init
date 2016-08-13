@@ -4,10 +4,11 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
+    dist: path.resolve(__dirname, '../dist/'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    // cdn地址
+    assetsPublicPath: '//cdn.demozhan.com/vue/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -18,9 +19,9 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
-    assetsSubDirectory: 'static',
+    port: 8000,
+    proxyTable: {},
     assetsPublicPath: '/',
-    proxyTable: {}
+    assetsSubDirectory: 'static'
   }
 }

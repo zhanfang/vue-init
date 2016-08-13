@@ -2,16 +2,16 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var config = require('../config')
-var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = process.env.NODE_ENV === 'testing'
-  ? require('./webpack.prod.conf')
-  : require('./webpack.dev.conf')
+var proxy = require('proxy-middleware')
+
+process.env.NODE_ENV = 'development'
+
+var webpackConfig = require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
-var proxyTable = config.dev.proxyTable
 
 var app = express()
 var compiler = webpack(webpackConfig)
@@ -33,14 +33,7 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
-// proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-  var options = proxyTable[context]
-  if (typeof options === 'string') {
-    options = { target: options }
-  }
-  app.use(proxyMiddleware(context, options))
-})
+app.use('/vue/', proxy('http://localhost:' + port))
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
