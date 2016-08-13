@@ -8,7 +8,8 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     // cdn地址
-    assetsPublicPath: '//cdn.demozhan.com/vue/',
+    // assetsPublicPath: '//cdn.demozhan.com/vue/',
+    assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
