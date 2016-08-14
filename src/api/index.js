@@ -24,5 +24,8 @@ export default {
   },
   getAnchorRank: function (params) {
     return Resource.GetAnchorRank.get(params)
+  },
+  getFansRank: function (params) {
+    return Resource.GetFansRank.get(params)
   }
 }

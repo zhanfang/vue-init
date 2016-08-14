@@ -20,7 +20,7 @@
           <span>艺人</span>
           <span>魅力值</span>
         </li>
-        <li v-for="n in 1000">{{n}}</li>
+        <li v-for="user in anchor">{{user.name}}</li>
       </ul>
     </tab-container-item>
     <tab-container-item id="fans">
@@ -54,6 +54,10 @@
 
   export default {
     vuex: {
+      getters: {
+        anchor: ({rank}) => rank.anchor,
+        fans: ({rank}) => rank.fans
+      },
       actions: {
         getAnchorRank
       }
@@ -64,6 +68,9 @@
       TabContainer,
       TabContainerItem
     },
+    created () {
+      this.getAnchorRank({anchor_uni: 123456})
+    },
     data () {
       return {
         selected: 'anchor'
@@ -71,7 +78,7 @@
     },
     methods: {
       getAnchor () {
-        this.getAnchorRank({anchor_uni: 123456})
+        console.log('重新拉取anchor数据')
       }
     }
   }

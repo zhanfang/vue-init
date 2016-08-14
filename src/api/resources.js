@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
-const API_ROOT = 'http://127.0.0.1:8080/'
+const API_ROOT = '/api/'
 
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
@@ -35,4 +35,5 @@ export const RegisterResource = Vue.resource(API_ROOT + 'register')
 export const TodosResource = Vue.resource(API_ROOT + 'todos')
 export const SaveResource = Vue.resource(API_ROOT + 'save')
 export const GetAnchorRank = Vue.resource(API_ROOT + 'get_rank_of_anchor')
+export const GetFansRank = Vue.resource(API_ROOT + 'get_rank_of_fans')
 

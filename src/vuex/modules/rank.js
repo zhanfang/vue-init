@@ -1,4 +1,4 @@
-import { GET_ANCHOR_RANK_SUCCESS, GET_ANCHOR_RANK_FAILURE } from 'store/constants'
+import { GET_ANCHOR_RANK_SUCCESS, GET_ANCHOR_RANK_FAILURE, GET_FANS_RANK_SUCCESS } from 'store/constants'
 
 const state = {
   anchor: [],
@@ -11,6 +11,10 @@ const mutations = {
   [GET_ANCHOR_RANK_SUCCESS] (state, action) {
     state.error = false
     state.anchor = action.anchor
+  },
+  [GET_FANS_RANK_SUCCESS] (state, action) {
+    state.error = false
+    state.anchor = action.fans
   },
   [GET_ANCHOR_RANK_FAILURE] (state, action) {
     state.errorMsg = action.errorMsg
