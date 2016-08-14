@@ -12,19 +12,14 @@ Vue.http.options.xhr = {
   withCredentials: true
 }
 
-Vue.http.interceptors.push({
-  request (request) {
-    // 这里对请求体进行处理
-    request.headers = request.headers || {}
-    return request
-  },
-  response (response) {
-    // 这里可以对响应的结果进行处理
+Vue.http.interceptors.push((request, next) => {
+  // 这里对请求体进行处理
+  request.headers = request.headers || {}
+  next((response) => {
     if (response.status === 404) {
-      window.router.go('error')
+      console.log('error 404')
     }
-    return response
-  }
+  })
 })
 
 export const UserResource = Vue.resource(API_ROOT + 'users{/id}')
