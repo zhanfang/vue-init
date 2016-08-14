@@ -21,7 +21,14 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8000,
-    proxyTable: {},
+    proxyTable: {
+        '/api': {
+            // json-server的服务器
+            target: 'http://localhost:3000',
+            changeOrigin: true,
+            logLevel: 'debug'
+        }
+    },
     assetsPublicPath: '/',
     assetsSubDirectory: 'static'
   }
