@@ -1,6 +1,6 @@
 {
-  "name": "qixi",
-  "version": "1.0.0",
+  "name": "vue-init",
+  "version": "0.0.1",
   "description": "A Vue.js project",
   "author": "zhanfang &lt;fzhanxd@gmail.com&gt;",
   "private": true,

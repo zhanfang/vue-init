@@ -41,20 +41,23 @@
     }
   }
 </script>
+
 <style lang="stylus">
-  body
-    background: transparent
-    cursor: default
-  .app
-    position: relative
-    width: 462px
-    height: 458px
-    margin: 0 auto
-    
-    background url('assets/img/bg.png')
-  main
-    padding-top: 60px
-    header
-      padding: 0 10px
+  @import "~styles/common.styl"
+</style>
+
+<style lang="stylus" scoped>
+  @import "~styles/rem.styl"
+  main{
+    padding-top: px2rem(30);
+    header{
+      padding: 0 10px;
+    }
+  }
+  .app{
+    .tab-item{
+      background: #000;
+    }
+  }
     
 </style>

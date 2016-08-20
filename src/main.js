@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import routeMap from './routes'
 import { sync } from 'vuex-router-sync'
 import store from './vuex/store.js'
+import VueTap from 'plugins/vue-tap'
+
+Vue.use(VueTap)
 
 Vue.use(VueRouter)
 

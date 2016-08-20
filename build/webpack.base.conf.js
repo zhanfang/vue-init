@@ -26,7 +26,8 @@ module.exports = {
       'components': path.resolve(__dirname, '../src/components'),
       'containers': path.resolve(__dirname, '../src/containers'),
       'api': path.resolve(__dirname, '../src/api'),
-      'store': path.resolve(__dirname, '../src/vuex')
+      'store': path.resolve(__dirname, '../src/vuex'),
+      'plugins': path.resolve(__dirname, '../src/plugins')
     }
   },
   resolveLoader: {
@@ -71,6 +72,9 @@ module.exports = {
     ]
   },
   vue: {
+    autoprefixer: {
+      browsers: ['last 2 versions']
+    },
     loaders: utils.cssLoaders()
   }
 }

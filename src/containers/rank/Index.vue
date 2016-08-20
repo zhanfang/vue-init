@@ -12,7 +12,7 @@
       </tab-item>
     </tabbar>
   </header>
-  <tab-container :active.sync="selected" class="list">
+  <tab-container :active.sync="selected" class="list scroll-list">
     <tab-container-item id="anchor">
       <ul>
         <li>
@@ -20,7 +20,10 @@
           <span>艺人</span>
           <span>魅力值</span>
         </li>
-        <li v-for="user in anchor">{{user.name}}</li>
+        <li v-for="(index, user) in anchor" v-tap="tapClick" track-by="$index">
+          <span>{{index}}</span>
+          <span>{{user.name}}</span>
+        </li>
       </ul>
     </tab-container-item>
     <tab-container-item id="fans">
@@ -79,28 +82,20 @@
     methods: {
       getAnchor () {
         console.log('重新拉取anchor数据')
+      },
+      tapClick (){
+        console.log('this is tapClick')
       }
     }
   }
 </script>
-<style scoped>
-  .list {
-    height: 300px;
-    overflow: hidden;
-  }
-  .list:hover {
-    overflow-y: scroll;
-  }
-  .list::-webkit-scrollbar {
-    background: RGBA(72, 167, 242, .30);
-    border-radius: 10px;
-    width: 10px;
-    height: 200px;
-  }
-  .list::-webkit-scrollbar-thumb {
-    background: RGBA(72, 167, 242, 1);
-    width: 8px;
-    height: 20px;
-    border-radius: 5px;
-  }
+<style lang="stylus" scoped>
+  @import "~styles/rem.styl"
+    ul{
+      li{
+        padding: px2rem(10);
+        border-bottom: 1px solid;
+      }
+    }
+
 </style>

@@ -26,7 +26,7 @@ module.exports = {
             // json-server的服务器
             target: 'http://localhost:3000',
             changeOrigin: true,
-            logLevel: 'debug'
+            // logLevel: 'debug'
         }
     },
     assetsPublicPath: '/',
